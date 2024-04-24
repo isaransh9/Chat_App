@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #cccccc; /* Set the color of the scrollbar thumb */
+    border-radius: 4px; /* Set the border radius of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #999999; /* Change the color of the scrollbar thumb on hover */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Set the color of the scrollbar track */
+    border-radius: 8px; /* Set the border radius of the scrollbar track */
+}
