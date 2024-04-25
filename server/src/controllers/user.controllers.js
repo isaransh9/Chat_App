@@ -5,6 +5,18 @@ import { ApiResponse } from '../utils/ApiResponse.js';
 import jwt from 'jsonwebtoken';
 import { Conversation } from '../models/conversation.model.js';
 
+const validUser = asyncHandler(async (req, res) => {
+  const { email } = req.body;
+  const user = await User.findOne({ email: email });
+
+  return res.status(200).json(
+    new ApiResponse(
+      200,
+      user
+    )
+  );
+})
+
 const generateAccessAndRefreshTokens = async (userId) => {
   try {
     const user = await User.findById(userId);
@@ -205,4 +217,4 @@ const getOneUserConversation = asyncHandler(async (req, res) => {
 });
 
 
-export { registerUser, loginUser, logoutUser, refreshAccessToken, getAllUserData, getOneUserConversation }
+export { registerUser, loginUser, logoutUser, refreshAccessToken, getAllUserData, getOneUserConversation, validUser }

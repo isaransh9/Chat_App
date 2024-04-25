@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { loginUser, registerUser, logoutUser, getAllUserData, getOneUserConversation } from "../controllers/user.controllers.js";
+import { loginUser, registerUser, logoutUser, getAllUserData, getOneUserConversation,validUser } from "../controllers/user.controllers.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { getMessage, sendMessage } from "../controllers/message.controllers.js";
 
 const router = Router();
 router.route('/register').post(registerUser);
 router.route('/login').post(loginUser);
-
+router.route('/getUser').post(validUser);
 //Secured routes
 router.route('/logout').post(verifyJWT, logoutUser);
 router.route('/sendMessage/:id').post(verifyJWT, sendMessage);
